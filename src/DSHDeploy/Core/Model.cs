@@ -110,7 +110,12 @@ namespace DSHDeploy.Core
     /// 2. The <c>alpha</c> tag currently resolves to <c>0.1.7-alpha.1</c>, which the community
     ///    plugin ecosystem does not support yet: across the plugins installed on a working
     ///    profile, no peer range mentions 0.1.7 at all, while several explicitly list
-    ///    <c>0.1.6-alpha.1</c> / <c>0.1.6-alpha.2</c>. Installing it breaks most plugins.
+    ///    <c>0.1.6-alpha.1</c> / <c>0.1.6-alpha.2</c>. Installing it breaks most plugins, and a
+    ///    clean-machine test (as of 2026-09-23) showed the DSH plugin marketplace does not work
+    ///    at all on 0.1.7-alpha.1.
+    ///
+    /// Compatibility is judged by mainstream plugins only; the full marketplace catalogue
+    /// (2300+ entries) is deliberately not surveyed, because it is slow and adds no signal.
     ///
     /// So the default is pinned to a concrete, verified-installable release that the ecosystem
     /// actually declares support for, rather than to a dist-tag that can move under us.

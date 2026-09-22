@@ -75,7 +75,7 @@ Every candidate in a group stays in the result list, so one bad probe only demot
 | Tag / version | Why not |
 |---|---|
 | `latest` → `0.1.5-rc.2` | **Older** than the current pin |
-| `alpha` → `0.1.7-alpha.1` | **Newer, but the plugin ecosystem does not support it yet**: no existing plugin peer range mentions 0.1.7; most stop at `0.1.6-alpha.1` / `0.1.6-alpha.2` |
+| `alpha` → `0.1.7-alpha.1` | **Newer, but unsupported by the plugin ecosystem — and it measurably breaks**: no existing plugin peer range mentions 0.1.7; most stop at `0.1.6-alpha.1` / `0.1.6-alpha.2`. **Tested on a clean machine (as of 2026-09-23): with 0.1.7-alpha.1 installed, the DSH plugin marketplace does not work** |
 | **`0.1.6-alpha.2` (default)** | A concrete version that installs cleanly and is explicitly declared by plugins |
 
 Evidence from a working local profile (10 plugins) — declared core versions:
@@ -91,6 +91,8 @@ Evidence from a working local profile (10 plugins) — declared core versions:
 | `dshmarket` 1.52.0 | `@deepseek-ai/dsh-settings: ^0.1.0-rc.7 \|\| ^0.1.1-rc.2 \|\| ^0.1.2-alpha.2` |
 
 Note the last row: even the marketplace’s own peer range still stops at `0.1.2-alpha.2`. **Peer declarations across the ecosystem lag behind**, so pnpm will not refuse the install for peer mismatch — real compatibility only shows up at runtime. That is why auto-picking by peer range is not viable, and why this project pins a **version that has been verified in practice**.
+
+Compatibility is judged by **mainstream plugins only**: the 2300+ entries in the marketplace are not surveyed exhaustively; if the mainstream plugins work, the version counts as usable.
 
 Two related behaviors:
 
