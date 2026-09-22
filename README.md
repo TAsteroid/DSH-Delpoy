@@ -116,21 +116,6 @@ DSH 从 `%USERPROFILE%\.dsh\.credentials.yaml` 读取凭据。该文件是 `vers
 powershell -ExecutionPolicy Bypass -File build\Build.ps1          # 或加 -Clean
 ```
 
-- 产物：`dist/DSH-Deploy.exe`
-- 使用 **系统自带的 C# 编译器**（`%WINDIR%\Microsoft.NET\Framework64\v4.0.30319\csc.exe`）。这是刻意的：本工具面向的正是可能没有任何开发工具链的机器，构建过程本身也不应依赖工具链。
-- 因此源码**不使用 C# 6+ 语法**（无字符串插值、无 `?.`、无 `out var`/`out _`）。可用的编译器语言版本可能只到 C# 5.0。
-- 图标以两种方式嵌入：`/win32icon`（exe 图标组，资源管理器、任务栏、UAC 提示都用它）与 `/resource`（运行时读取，用于向导头部）。构建前会校验图标的 SHA-256，不匹配即失败。
-- `build/Build.ps1` 内**不含非 ASCII 字符**：Windows PowerShell 5.1 会把无 BOM 的 `.ps1` 当作 ANSI 读取，中文字符串会直接破坏脚本解析。
-- 不使用 `resgen.exe`：它属于 Windows SDK 而非 .NET Framework，在普通机器上并不存在。
-
-## 测试
-
-```
-dist\DSH-Deploy.exe --self-test
-```
-
-内置 165 项断言，全部为纯逻辑或只读检查，不会修改机器。覆盖：版本号与预发布排序（`0.1.5-rc.2 < 0.1.6-alpha.2 < 0.1.7-alpha.1 < 0.1.7`）、最低版本判定、不降级策略、地区解析、两种地区的地址构造与备选顺序、`SHASUMS256.txt` 解析、测速排序与平局判定、环境就绪时跳过测速、图标结构（7 个尺寸、均 32bpp、含 16² 与 256²）、JSON 小工具（含键名不互相误匹配）、凭据合并四种场景与拒绝场景、日志脱敏。
-
 ## 已知限制
 
 - 仅支持 Windows x64（检测到 ARM64 会明确报告不支持）。
