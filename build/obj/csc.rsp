@@ -1,0 +1,37 @@
+/nologo
+/target:winexe
+/platform:x64
+/codepage:65001
+/win32icon:"D:\Asteroid\DSH\DSH Client\assets\deepseek-bowl.ico"
+/win32manifest:"D:\Asteroid\DSH\DSH Client\src\DSHDeploy\app.manifest"
+/resource:"D:\Asteroid\DSH\DSH Client\assets\deepseek-bowl.ico",deepseek-bowl.ico
+/reference:System.dll
+/reference:System.Core.dll
+/reference:System.Drawing.dll
+/reference:System.Windows.Forms.dll
+/reference:System.Net.Http.dll
+/reference:System.IO.Compression.dll
+/reference:System.IO.Compression.FileSystem.dll
+/reference:System.Security.dll
+/optimize+
+/out:"D:\Asteroid\DSH\DSH Client\dist\DSH-Deploy.exe"
+"D:\Asteroid\DSH\DSH Client\src\DSHDeploy\Program.cs"
+"D:\Asteroid\DSH\DSH Client\src\DSHDeploy\Core\CredentialsWriter.cs"
+"D:\Asteroid\DSH\DSH Client\src\DSHDeploy\Core\Deployment.cs"
+"D:\Asteroid\DSH\DSH Client\src\DSHDeploy\Core\Downloader.cs"
+"D:\Asteroid\DSH\DSH Client\src\DSHDeploy\Core\DshInstaller.cs"
+"D:\Asteroid\DSH\DSH Client\src\DSHDeploy\Core\EnvChecker.cs"
+"D:\Asteroid\DSH\DSH Client\src\DSHDeploy\Core\GitInstaller.cs"
+"D:\Asteroid\DSH\DSH Client\src\DSHDeploy\Core\Launcher.cs"
+"D:\Asteroid\DSH\DSH Client\src\DSHDeploy\Core\Log.cs"
+"D:\Asteroid\DSH\DSH Client\src\DSHDeploy\Core\MarketInstaller.cs"
+"D:\Asteroid\DSH\DSH Client\src\DSHDeploy\Core\Model.cs"
+"D:\Asteroid\DSH\DSH Client\src\DSHDeploy\Core\NodeInstaller.cs"
+"D:\Asteroid\DSH\DSH Client\src\DSHDeploy\Core\PathSync.cs"
+"D:\Asteroid\DSH\DSH Client\src\DSHDeploy\Core\PnpmInstaller.cs"
+"D:\Asteroid\DSH\DSH Client\src\DSHDeploy\Core\Proc.cs"
+"D:\Asteroid\DSH\DSH Client\src\DSHDeploy\Core\Region.cs"
+"D:\Asteroid\DSH\DSH Client\src\DSHDeploy\Core\SelfTest.cs"
+"D:\Asteroid\DSH\DSH Client\src\DSHDeploy\Core\Sources.cs"
+"D:\Asteroid\DSH\DSH Client\src\DSHDeploy\Ui\MainForm.cs"
+"D:\Asteroid\DSH\DSH Client\build\obj\AssemblyInfo.cs"
