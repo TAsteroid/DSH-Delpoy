@@ -153,3 +153,10 @@ src/DSHDeploy/
 assets/deepseek-bowl.ico    App icon (SHA-256 db20bea4…)
 build/Build.ps1             Build script
 ```
+
+## 许可
+
+启动器源码可按 MIT 使用。  
+鲸鱼娘立绘按原作者许可使用（社区二创，多为非商业）。  
+DeepSeek Harness 本身为上游 MIT 项目，版权归 DeepSeek AI。
+
